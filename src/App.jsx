@@ -3,8 +3,8 @@ import "./App.css";
 
 export function App() {
   const [numero, setNumero] = useState(100);
-  const [nome, setNome] = useState("Natalia");
   const [mudouNome, setMudouNome] = useState(false);
+  const [mostrarEsconder, setMostrarEsconder] = useState(false);
 
   function handleAumentar() {
     setNumero(numero + 100);
@@ -13,17 +13,18 @@ export function App() {
   function handleDiminuir() {
     setNumero(numero - 100);
   }
+   
+  function handleMostrarEsconder() {
+    // if (mostrarEsconder === true)   {
+     // setMostrarEsconder(false)
+   // }
+   // setMostrarEsconder(true)
+   // return 
 
-  function handleAlterarNome() {
-    if (mudouNome === false) {
-      setMudouNome(true);
-      setNome("Nati");
-      return;
-    }
-
-    setMudouNome(false);
-    setNome("Natalia");
+   setMostrarEsconder(!mostrarEsconder)
   }
+   
+ 
 
   return (
     <main className="container">
@@ -36,8 +37,9 @@ export function App() {
       </section>
 
       <section>
-        <p>O nome é: {nome}</p>
-        <button onClick={handleAlterarNome}>Alterar nome</button>
+        <h2>O parágrafo que some</h2>
+       {mostrarEsconder && <p>Em breve irei sumir</p> }
+        <button onClick={handleMostrarEsconder}>{mostrarEsconder ? "Esconder" : "Mostrar"}</button>
       </section>
     </main>
   );
